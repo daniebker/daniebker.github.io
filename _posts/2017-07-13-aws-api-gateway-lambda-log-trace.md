@@ -1,10 +1,12 @@
 ---
 layout: post
 title: "Tracing API Gateway requests through Lambda in AWS"
-date: 2017-07-12
+date: 2017-07-13
 ---
 
-Searching through API Gateway logs and trying to map a request to an API can be very tricky. You end up trying to match up timestamps to trace the request through to it's Lambda invocation. Apilogs is a python cli that eases searching through log groups to trace requests. You need to add some boilerplate code to your gateway to pass the api request id to the Lambda but the change is trivial.
+Searching through API Gateway logs and trying to map a request to an API can be very tricky. You end up trying to match up timestamps to trace the request through to it's Lambda invocation. 
+
+There is a way to trace requests from API Gateway to lambda. You need to add some boilerplate code to your gateway to pass an api request id to the Lambda but the change is trivial. It then becomes as simple as logging the api request in the lambda to be able to trace the call from the API Gateway entry point.
 
 ## Update API Gateway
 
@@ -58,9 +60,9 @@ def my_handler(event, context):
 
 ## Pulling it all together
 
-Now you can search through cloud watch for an API Gateway request and using the request id trace what happened in the lambda logs. 
+Now you can search through cloud watch for an API Gateway request and using the api request id trace what happened in the lambda logs. 
 
-There is a better way.
+There is also an easier way.
 
 ## Using `apilogs`
 

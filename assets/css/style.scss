@@ -1,9 +1,11 @@
+---
+---
 body {
     margin: 60px auto;
-    width: 70%;
+    width: 50%;
+    font-family: 'Noto Sans', sans-serif;
 }
 nav ul, footer ul {
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
     padding: 0px;
     list-style: none;
     font-weight: bold;
@@ -17,14 +19,13 @@ a {
     color: #999;
 }
 a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 h1 {
-    font-size: 3em;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    font-size: 36px;
 }
 p {
-    font-size: 1.5em;
+    font-size: 16px;
     line-height: 1.4em;
     color: #333;
 }
@@ -40,4 +41,18 @@ ul.posts {
 
 ul.posts li {
     list-style: none;
+}
+
+@media print, screen and (max-width: 720px) {
+    body {
+        width: 80%;
+    }
+    h1 {
+    font-size: 28px;
+    }
+    p {
+        font-size: 12px;
+        line-height: 1.4em;
+        color: #333;
+    }
 }
